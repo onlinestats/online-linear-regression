@@ -1,0 +1,22 @@
+{
+  "name": "online-linear-regression",
+  "version": "1.0.0",
+  "description": "Online linear regression",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onlinestats/online-linear-regression.git"
+  },
+  "author": "Anton Zemlyansky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onlinestats/online-linear-regression/issues"
+  },
+  "homepage": "https://github.com/onlinestats/online-linear-regression#readme",
+  "dependencies": {
+    "linear-algebra": "^3.1.4"
+  }
+}
