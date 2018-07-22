@@ -47,7 +47,8 @@ then just call ```linreg``` with 2 arguments (<b>x</b>, y) when training the mod
 ```javascript
 // Example of polynomial regression
 for (let i = 0; i < 5; i += Math.random() * 0.5) {
-  let y = 3 * i ** 2 - 2 * i ** 2 + 9 * i + 10 + Math.random() * 20 - 10
+  let noise = Math.random() * 10 - 5
+  let y = 3 * i ** 2 - 2 * i ** 2 + 9 * i + 10 + noise
   linreg([i, i ** 2, i ** 3], y)
 }
 

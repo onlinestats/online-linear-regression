@@ -7,10 +7,6 @@ function LinReg () {
   let K
   let N = 0
 
-  // let P = Matrix.scalar(N, 100)
-  // let w = Matrix.zero(N, 1)
-  // let K
-
   return function (x, y) {
     if (x && typeof x === 'number') {
       x = [x]
