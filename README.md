@@ -48,8 +48,8 @@ then just call ```linreg``` with 2 arguments (<b>x</b>, y) when training the mod
 // Example of polynomial regression
 for (let i = 0; i < 5; i += Math.random() * 0.5) {
   let y = 3 * i ** 2 - 2 * i ** 2 + 9 * i + 10 + Math.random() * 20 - 10
-  lin([i, i ** 2, i ** 3], y)
+  linreg([i, i ** 2, i ** 3], y)
 }
 
-console.log(lin([2, 4, 8])) // 43.22
+console.log(linreg([2, 4, 8])) // 43.22
 ```
