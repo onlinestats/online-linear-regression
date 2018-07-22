@@ -102,3 +102,22 @@ Using [Woodbury matrix identity ](https://en.wikipedia.org/wiki/Woodbury_matrix_
 α is a scalar value equal to
 
 > α = (1 + <b>x</b><sup>T</sup><sub>i+1</sub><b>P</b><sub>i</sub><b>x</b><sub>i+1</sub>)<sup>-1</sup>
+
+Now we can re-write the equation (4) in a recursive way:
+
+> <b>⍵</b><sub>i+1</sub> = <b>P</b><sub>i+1</sub><b>X</b><sup>T</sup><sub>i+1</sub><b>y</b><sub>i+1</sub> = <b>P</b><sub>i+1</sub>(<b>X</b><sup>T</sup><sub>i</sub><b>y</b><sub>i</sub> + <b>x</b><sub>i+1</sub>y<sub>i+1</sub>) = (<b>P</b><sub>i</sub> - α<b>P</b><sub>i</sub><b>x</b><sub>i+1</sub><b>x</b><sup>T</sup><sub>i+1</sub><b>P</b><sub>i</sub>)(<b>X</b><sup>T</sup><sub>i</sub><b>y</b><sub>i</sub> + <b>x</b><sub>i+1</sub>y<sub>i+1</sub>)<br>
+> …<br>
+> <b>⍵</b><sub>i+1</sub> = <b>⍵</b><sub>i</sub> + <b>k</b><sub>i+1</sub>(y<sub>i+1</sub> - <b>x</b><sup>T</sup><sub>i+1</sub><b>⍵</b><sub>i</sub>)&nbsp;&nbsp;&nbsp;<small><b>(6)</b></small><br> 
+
+where
+
+> <b>k</b><sub>i+1</sub> = <b>P</b><sub>i+1</sub><b>x</b><sub>i+1</sub> = α<b>P</b><sub>i</sub><b>x</b><sub>i+1</sub> = (1 + <b>x</b><sup>T</sup><sub>i+1</sub><b>P</b><sub>i</sub><b>x</b><sub>i+1</sub>)<sup>-1</sup><b>P</b><sub>i</sub><b>x</b><sub>i+1</sub>&nbsp;&nbsp;&nbsp;<small><b>(7)</b></small><br>
+
+The last thing we need is an updated formula of <b>P</b><sub>i+1</sub> based on knowledge of <b>k</b>:
+
+> <b>P</b><sub>i+1</sub> = <b>P</b><sub>i</sub> - α<b>P</b><sub>i</sub><b>x</b><sub>i+1</sub><b>x</b><sup>T</sup><sub>i+1</sub><b>P</b><sub>i</sub> = <b>P</b><sub>i</sub> - <b>k</b><sub>i+1</sub><b>x</b><sup>T</sup><sub>i+1</sub><b>P</b><sub>i</sub>&nbsp;&nbsp;&nbsp;<small><b>(8)</b></small><br>
+
+Now we have all needed pieces to calculate weights <b>⍵</b> iteratively. For each new sample:
+1. Calculate vector <b>k</b><sub>i+1</sub> using previous values of the matrix <b>P</b><sub>i</sub> and new input values x<sub>0</sub>,x<sub>1</sub>…x<sub>n</sub>
+2. Calculate vector <b>⍵</b><sub>i+1</sub>
+3. Update n×n matrix <b>P</b><sub>i+1</sub>
